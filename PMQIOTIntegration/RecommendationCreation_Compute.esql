@@ -14,7 +14,7 @@ CREATE COMPUTE MODULE RecommendationCreation_Compute
 		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
 		
 --		SET OutputRoot.Properties.IdentitySourceToken = 'token';
---		SET OutputRoot.Properties.IdentitySourcePassword = '8az!4yl693d2&HcSo?';
+--		SET OutputRoot.Properties.IdentitySourcePassword = '*****************';
 
 		SET OutputRoot.HTTPRequestHeader."Content-Type"='application/json';
 		SET OutputRoot.HTTPRequestHeader.Accept='application/json';
