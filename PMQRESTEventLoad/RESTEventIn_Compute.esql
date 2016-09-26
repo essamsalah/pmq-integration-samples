@@ -3,10 +3,11 @@
 CREATE COMPUTE MODULE RESTEventIn_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
-		CALL CopyMessageHeaders();
-		SET OutputRoot.XMLNSC.(XMLNSC.Element)*[1] = InputRoot.JSON.Data.event;
-
-		-- CALL CopyEntireMessage();
+			CALL CopyMessageHeaders();
+			SET OutputRoot.HTTPReplyHeader."Content-Type" = 'application/json';
+			SET OutputRoot.JSON = InputRoot.JSON;	
+			-- Return an "unauthorized" error code	   	
+			SET OutputRoot.HTTPReplyHeader."X-Original-HTTP-Status-Code"=401;
 		RETURN TRUE;
 	END;
 
