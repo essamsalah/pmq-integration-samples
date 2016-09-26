@@ -23,6 +23,25 @@ public class RESTEventIn_JavaCompute extends MbJavaComputeNode {
 			outAssembly = new MbMessageAssembly(inAssembly, outMessage);
 			// ----------------------------------------------------------
 			// Add user code below
+			// Check credentials
+			boolean authorized = false;
+			MbElement properties = inMessage.getRootElement().getFirstElementByPath("Properties");
+			if (properties != null) {
+				MbElement user = properties.getFirstElementByPath("IdentitySourceToken");
+				MbElement password = properties.getFirstElementByPath("IdentitySourcePassword");
+				if (user != null && password != null) {
+					String userstr = user.getValueAsString();
+					String passwordstr = password.getValueAsString();
+					
+					if ("******".equals(userstr) && "******".equals(passwordstr)) {
+						authorized = true;
+					}
+				}
+			}
+			if (!authorized) {
+				alt.propagate(outAssembly);
+			}
+			
 			MbElement domainElement = inMessage.getRootElement().getFirstElementByPath("JSON");
 			MbElement eventElement = domainElement.getFirstChild().getFirstChild().getFirstChild();
 
