@@ -40,6 +40,7 @@ public class RESTEventIn_JavaCompute extends MbJavaComputeNode {
 			}
 			if (!authorized) {
 				alt.propagate(outAssembly);
+				return;
 			}
 			
 			MbElement domainElement = inMessage.getRootElement().getFirstElementByPath("JSON");
