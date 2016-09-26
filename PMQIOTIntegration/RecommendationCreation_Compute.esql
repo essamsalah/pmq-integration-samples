@@ -6,12 +6,12 @@ CREATE COMPUTE MODULE RecommendationCreation_Compute
 		CALL CopyMessageHeaders();
 		DECLARE url CHAR;
 		SET OutputRoot.Properties.IdentitySourceType='usernameAndPassword';
---		SET OutputRoot.Properties.IdentitySourceToken = 'a-i4sdra-9xqlakkcky';
---		SET OutputRoot.Properties.IdentitySourcePassword = 'uP(VRF3j(wUvHS1pOm';
---		SET OutputRoot.Properties.IdentitySourceToken = 'a-f89p2r-2j3fw2m6or';
---		SET OutputRoot.Properties.IdentitySourcePassword = 'st0XHg_k&*0QO1Nhap';
-		SET OutputRoot.Properties.IdentitySourceToken = 'a-37ta27-3cnzwhbzom';
-		SET OutputRoot.Properties.IdentitySourcePassword = 'jd(?5((dF3?&LjjTSU';
+--		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
+--		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
+--		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
+--		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
+		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
+		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
 		
 --		SET OutputRoot.Properties.IdentitySourceToken = 'token';
 --		SET OutputRoot.Properties.IdentitySourcePassword = '8az!4yl693d2&HcSo?';
