@@ -3,26 +3,20 @@
 CREATE COMPUTE MODULE RecommendationCreation_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
-		CALL CopyMessageHeaders();
+--		CALL CopyMessageHeaders();
 		DECLARE url CHAR;
 		SET OutputRoot.Properties.IdentitySourceType='usernameAndPassword';
---		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
---		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
---		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
---		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
-		SET OutputRoot.Properties.IdentitySourceToken = 'API-KEY';
-		SET OutputRoot.Properties.IdentitySourcePassword = 'Token';
+		SET OutputRoot.Properties.IdentitySourceToken = '*******';
+		SET OutputRoot.Properties.IdentitySourcePassword = '*******';
 		
---		SET OutputRoot.Properties.IdentitySourceToken = 'token';
---		SET OutputRoot.Properties.IdentitySourcePassword = '*****************';
-
 		SET OutputRoot.HTTPRequestHeader."Content-Type"='application/json';
 		SET OutputRoot.HTTPRequestHeader.Accept='application/json';
 		
 		-- Assemble the URL
 		SET url = 'https://';
 		SET url = url || InputRoot.JSON.Data.orgId;
-		SET url = url || '.internetofthings.ibmcloud.com/api/v0002/application/types/';
+--		SET url = url || '.internetofthings.ibmcloud.com/api/v0002/application/types/';
+		SET url = url || '.messaging.internetofthings.ibmcloud.com:8883/api/v0002/application/types/';
 		SET url = url || InputRoot.JSON.Data.typeId;
 		SET url = url || '/devices/';
 		SET url = url || InputRoot.JSON.Data.deviceId;
